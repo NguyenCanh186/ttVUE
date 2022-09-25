@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{title}}</h1>
+    <h1>After computed: {{lowercaseTitle}}</h1>
+    <button @click="show">Show</button>
+    <p v-if="showParagraph">hasdjfhjadhfkhfkjsdhkfjsfdhgjhsdfjgsdfjs</p>
+</div>
+<div id="app1">
+    <h1>{{title}}</h1>
+        <button @click="onChangeTitle">Change something</button>
+</div>
+<script>
+    var vn = new Vue({
+        el: '#app',
+        data: {
+            title: 'The Vue JS instance',
+            showParagraph: false
+        },
+        methods: {
+            show: function (){
+                this.showParagraph = true;
+                this.updateTitle('This Vue JS instance(Updated)')
+            },
+            updateTitle: function (title){
+                this.title = title;
+            }
+        },
+        computed: {
+            lowercaseTitle: function (){
+                return this.title.toLowerCase()
+            }
+        },
+        watch: {
+            title: function (value){
+                alert('Title changed, new value:' + value)
+            }
+        }
+    })
+
+    var tl = new Vue({
+        el: '#app1',
+        data:{
+            title: 'The second Vue JS instance'
+        },
+        methods: {
+            onChangeTitle: function (){
+                vn.title = 'Changed';
+            }
+        }
+    });
+
+    setTimeout(function (){
+        vn.title
+    }, 3000)
+</script>
+</body>
+</html>

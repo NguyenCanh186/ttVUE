@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(menu, i) in menus">{{menu}} voi index la: {{i}}</li>
+    </ul>
+    <button @click="menus.push('test')">Add new item menu</button>
+<!--    <table >-->
+<!--        <tr>-->
+<!--            <th>#</th>-->
+<!--            <th>Name</th>-->
+<!--            <th>Age</th>-->
+<!--            <th>Class</th>-->
+<!--        </tr>-->
+<!--        <tr v-for="(person, i) in student">-->
+<!--            <td>{{i}}</td>-->
+<!--            <td>{{person.name}}</td>-->
+<!--            <td>{{person.age}}</td>-->
+<!--            <td>{{person.class}}</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            menus: ['Home', 'About', 'Blog', 'Contact', 'FAQ'],
+            student: [
+                {name: 'Canh', age: '26', class: 'IT'},
+                {name: 'Ngoc Anh', age: '23', class: 'CNTT'},
+                {name: 'Yuki', age: '10', class: 'QTKD'}
+            ]
+        }
+    })
+</script>
+</body>
+</html>
